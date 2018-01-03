@@ -1,0 +1,13 @@
+project(sample01)
+cmake_minimum_required(VERSION 2.8)
+set(wxWidgets_USE_LIBS)
+find_package(wxWidgets)
+if(wxWidgets_FOUND)
+  include("${wxWidgets_USE_FILE}")
+  file(GLOB SOURCES "*.cpp")
+  add_executable(${PROJECT_NAME} ${SOURCES})
+  target_link_libraries(${PROJECT_NAME} ${wxWidgets_LIBRARIES})
+else(wxWidgets_FOUND)
+  message("wxWidgets not found !!!")
+endif(wxWidgets_FOUND)
+
